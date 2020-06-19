@@ -1,0 +1,81 @@
+<resources>
+    <string name="app_name" translatable="false">Coursera Assignment</string>
+    <string name="quiz_app">Quiz App</string>
+
+    <string-array name="question_list">
+        <item>When did Google purchase Android?</item>
+        <item>Which of the following is NOT a valid usage for Intents?</item>
+        <item>Android is based on Linux for the following reason.</item>
+        <item>Which company developed android?</item>
+        <item>The XML file that contains all the text that your application uses</item>
+        <item>Which file specifies the minimum required Android SDK version your application supports?</item>
+        <item>What was Google’s main business motivation for supporting Android?</item>
+        <item>Which of the following is not a valid Android resource filename?</item>
+        <item>Android Applications must be signed</item>
+        <item>Select a component which is NOT part of Android architecture.</item>
+    </string-array>
+
+    <string-array name="optionsQ1">
+        <item>2007</item>
+        <item>2005</item>
+        <item>2008</item>
+        <item>2010</item>
+    </string-array>
+    <string-array name="optionsQ2">
+        <item>Activate an Activity</item>
+        <item>Activate a Service</item>
+        <item>Activate a Broadcast receiver</item>
+        <item>Activate a SQLite DB Connection</item>
+    </string-array>
+    <string-array name="optionsQ3">
+        <item>Security</item>
+        <item>Portability</item>
+        <item>Networking</item>
+        <item>All of these</item>
+    </string-array>
+    <string-array name="optionsQ4">
+        <item>Apple</item>
+        <item>Google</item>
+        <item>Android Inc</item>
+        <item>Nokia</item>
+    </string-array>
+    <string-array name="optionsQ5">
+        <item>stack.xml</item>
+        <item>text.xml</item>
+        <item>strings.xml</item>
+        <item>string.java</item>
+    </string-array>
+    <string-array name="optionsQ6">
+        <item>main.xml</item>
+        <item>R.java</item>
+        <item>strings.xml</item>
+        <item>AndroidManifest.xml</item>
+    </string-array>
+    <string-array name="optionsQ7">
+        <item>To level the playing field for mobile devices</item>
+        <item>To directly compete with the iPhone</item>
+        <item>To corner the mobile device application market for licensing purposes</item>
+        <item>To allow them to advertise more</item>
+    </string-array>
+    <string-array name="optionsQ8">
+        <item>mylayout.xml</item>
+        <item>myLayout.xml</item>
+        <item>my_layout.xml</item>
+        <item>mylayout1.xml</item>
+    </string-array>
+    <string-array name="optionsQ9">
+        <item>After they are installed</item>
+        <item>Before they are installed</item>
+        <item>Never</item>
+        <item>Within two weeks of installation</item>
+    </string-array>
+    <string-array name="optionsQ10">
+        <item>Android Framework</item>
+        <item>Libraries</item>
+        <item>Linux Kernel</item>
+        <item>Android Document</item>
+    </string-array>
+
+    <string name="building_blocks_used">Building Blocks Used</string>
+    <string name="add_questions">All Questions....</string>
+</resources>
