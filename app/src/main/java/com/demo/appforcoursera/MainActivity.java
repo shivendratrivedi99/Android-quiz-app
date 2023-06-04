@@ -11,7 +11,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,7 +23,7 @@ import com.daimajia.androidanimations.library.YoYo;
 
 import java.util.HashMap;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     String[] questionList;
     String[][] options;
@@ -61,6 +60,11 @@ public class MainActivity extends AppCompatActivity {
 
         previous = findViewById(R.id.previous_button);
         next = findViewById(R.id.next_button);
+        for(int i = 0;i <4;i++){
+            optionList[i].setOnClickListener(this);
+        }
+        previous.setOnClickListener(this);
+        next.setOnClickListener(this);
         next.performClick();
 
     }
@@ -75,42 +79,19 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.building_blocks:
-                startActivity(new Intent(this, BuildingBlocksActivity.class));
-                return true;
-            case R.id.add_questions:
-
-                Toast.makeText(this, "All Questions have been sourced from the web", Toast.LENGTH_LONG).show();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        if (item.getItemId() == R.id.building_blocks) {
+            startActivity(new Intent(this, BuildingBlocksActivity.class));
+            return true;
+        }
+        else if (item.getItemId() == R.id.add_questions) {
+            Toast.makeText(this, "All Questions have been sourced from the web", Toast.LENGTH_LONG).show();
+            return true;
+        }
+        else {
+            return super.onOptionsItemSelected(item);
         }
     }
 
-    public void clickEvent(View view) {
-        if(view.getId() == R.id.option1)
-            saveSelectedOptionAndDisplayCorrectOrIncorrectOnClick(0);
-        if(view.getId() == R.id.option2)
-            saveSelectedOptionAndDisplayCorrectOrIncorrectOnClick(1);
-        if(view.getId() == R.id.option3)
-            saveSelectedOptionAndDisplayCorrectOrIncorrectOnClick(2);
-        if(view.getId() == R.id.option4)
-            saveSelectedOptionAndDisplayCorrectOrIncorrectOnClick(3);
-        if(view.getId() == R.id.previous_button){
-            if (currentQuestion > 0) {
-                currentQuestion--;
-                updateQuestionsAndOptions();
-            }
-        }
-        if(view.getId() == R.id.next_button){
-            if (currentQuestion < 9) {
-                currentQuestion++;
-                updateQuestionsAndOptions();
-            }
-        }
-
-    }
     private void saveSelectedOptionAndDisplayCorrectOrIncorrectOnClick(int option) {
         //if answer is correct
         if (answers[currentQuestion] == option) {
@@ -133,17 +114,18 @@ public class MainActivity extends AppCompatActivity {
         setAllOptionsClickable(false);
     }
     private void updateQuestionsAndOptions() {
+        System.out.print("heifh");
         question.setText(questionList[currentQuestion]);
         optionList[0].setText(options[currentQuestion][0]);
         optionList[1].setText(options[currentQuestion][1]);
         optionList[2].setText(options[currentQuestion][2]);
         optionList[3].setText(options[currentQuestion][3]);
 
-        YoYo.with(Techniques.FadeIn).duration(300).playOn(question);
-        YoYo.with(Techniques.FadeIn).duration(600).playOn(optionList[0]);
-        YoYo.with(Techniques.FadeIn).duration(900).playOn(optionList[1]);
-        YoYo.with(Techniques.FadeIn).duration(1200).playOn(optionList[2]);
-        YoYo.with(Techniques.FadeIn).duration(1500).playOn(optionList[3]);
+//        YoYo.with(Techniques.FadeIn).duration(300).playOn(question);
+//        YoYo.with(Techniques.FadeIn).duration(600).playOn(optionList[0]);
+//        YoYo.with(Techniques.FadeIn).duration(900).playOn(optionList[1]);
+//        YoYo.with(Techniques.FadeIn).duration(1200).playOn(optionList[2]);
+//        YoYo.with(Techniques.FadeIn).duration(1500).playOn(optionList[3]);
 
         optionList[0].setBackgroundColor(getResources().getColor(R.color.colorOptions));
         optionList[1].setBackgroundColor(getResources().getColor(R.color.colorOptions));
@@ -160,7 +142,7 @@ public class MainActivity extends AppCompatActivity {
         } else
             setAllOptionsClickable(true);
 
-        checkButtonsVisibility();
+//        checkButtonsVisibility();
     }
     private void checkButtonsVisibility() {
         if (currentQuestion == 0)
@@ -178,5 +160,29 @@ public class MainActivity extends AppCompatActivity {
         optionList[1].setClickable(b);
         optionList[2].setClickable(b);
         optionList[3].setClickable(b);
+    }
+
+    @Override
+    public void onClick(View view) {
+        if(view.getId() == R.id.option1)
+            saveSelectedOptionAndDisplayCorrectOrIncorrectOnClick(0);
+        if(view.getId() == R.id.option2)
+            saveSelectedOptionAndDisplayCorrectOrIncorrectOnClick(1);
+        if(view.getId() == R.id.option3)
+            saveSelectedOptionAndDisplayCorrectOrIncorrectOnClick(2);
+        if(view.getId() == R.id.option4)
+            saveSelectedOptionAndDisplayCorrectOrIncorrectOnClick(3);
+        if(view.getId() == R.id.previous_button){
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                updateQuestionsAndOptions();
+            }
+        }
+        if(view.getId() == R.id.next_button){
+            if (currentQuestion < 9) {
+                currentQuestion++;
+                updateQuestionsAndOptions();
+            }
+        }
     }
 }

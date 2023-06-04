@@ -78,4 +78,7 @@
 
     <string name="building_blocks_used">Building Blocks Used</string>
     <string name="add_questions">All Questions....</string>
+    <string name="previous">Previous</string>
+    <string name="next">Next</string>
+    <string name="just_a_few_questions_to_test_you">Just a few questions to test you</string>
 </resources>
